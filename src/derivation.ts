@@ -221,6 +221,9 @@ const modes = Object.freeze({
   filecoin: {
     overridesDerivation: "44'/461'/0'/0/<account>",
   },
+  hederaBip44: {
+    overridesDerivation: "44/3030/0/0/<account>",
+  },
 });
 modes as Record<DerivationMode, ModeSpec>; // eslint-disable-line
 
@@ -236,6 +239,7 @@ const legacyDerivations: Record<CryptoCurrencyIds, DerivationMode[]> = {
   stellar: ["sep5"],
   polkadot: ["polkadotbip44"],
   filecoin: ["filecoin"],
+  hedera: ["hederaBip44"],
 };
 
 const legacyDerivationsPerFamily: Record<string, DerivationMode[]> = {
@@ -416,6 +420,7 @@ const disableBIP44 = {
   // current workaround, device app does not seem to support bip44
   stellar: true,
   polkadot: true,
+  hedera: true,
 };
 const seedIdentifierPath = {
   neo: ({ purpose, coinType }) => `${purpose}'/${coinType}'/0'/0/0`,
