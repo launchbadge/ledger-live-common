@@ -25,7 +25,8 @@
     "ci-test-common": "env-cmd -f ./.ci.env yarn test --ci --updateSnapshot && git diff --exit-code src",
     "ci-setup-cli": "yalc publish && cd cli && yalc add @ledgerhq/live-common && yarn && yarn build && yarn link",
     "ci-test-cli": "cd cli && yarn test",
-    "ci-test-bot": "env-cmd -f ./.ci.env yarn jest --testMatch '**/*.bot.ts'"
+    "ci-test-bot": "env-cmd -f ./.ci.env yarn jest --testMatch '**/*.bot.ts'",
+    "unit-test": "yarn jest --testPathPattern=src/__tests__/families/hedera"
   },
   "files": [
     "lib",
